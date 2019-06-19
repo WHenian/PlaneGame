@@ -3,7 +3,7 @@
 #include "resource.h"
 
 CImageList CEnemy::m_Images;
-
+int CEnemy::PlaneNum = 0;//防止静态变量重复定义
 CEnemy::CEnemy(void)
 {
 	//随机确定X位置
@@ -17,13 +17,14 @@ CEnemy::CEnemy(void)
 	m_ptPos.y=-ENEMY_HEIGHT;
 	if (m_nImgIndex%2!=0)//如果是图像索引是偶数
 	{
-		m_nMotion=-1;
+		m_nMotion=1;//始终为正面
 		m_ptPos.y = GAME_HEIGHT+ENEMY_HEIGHT;
 	}
 	//随机确定速度
 	m_V = rand()%6+2;
-
+	PlaneDrawtimes = 0;
 	m_nWait=0;
+	PlaneNum++;
 }
 
 CEnemy::~CEnemy(void)
@@ -36,12 +37,15 @@ BOOL CEnemy::LoadImage()
 BOOL CEnemy::Draw(CDC* pDC,BOOL bPause)
 {
 	m_nWait++;
-	if(m_nWait>20)
+	if(m_nWait>5)
 		m_nWait=0;
-
-	if(!bPause)
+	//PlaneDrawtimes++;
+	if(!bPause)//敌机飞行位置
 	{
-		m_ptPos.y = m_ptPos.y + m_nMotion * m_V;
+		m_ptPos.y = m_ptPos.y  + m_nMotion * m_V;
+		//if(PlaneDrawtimes>100)
+		//if(PlaneNum > 10)
+		//m_ptPos.x = m_ptPos.x + m_nMotion * m_V ;
 	}
 
 	if(m_ptPos.y > GAME_HEIGHT+ENEMY_HEIGHT )

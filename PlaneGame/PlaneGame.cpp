@@ -52,7 +52,8 @@ BOOL CPlaneGameApp::InitInstance()
 	// 公共控件类。
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
-
+	GdiplusStartupInput m_GdiplusStarupInput;
+	GdiplusStartup(&m_uGdiplusToken, &m_GdiplusStarupInput, NULL);
 	CWinApp::InitInstance();
 
 	// 初始化 OLE 库

@@ -3,6 +3,9 @@
 
 
 #pragma once
+#include <gdiplus.h>
+#pragma comment(lib,"gdiplus.lib")
+using namespace Gdiplus;
 
 class CMyPlane;
 class CPlaneGameView : public CView
@@ -28,6 +31,8 @@ public:
 protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
+	ULONG_PTR m_uGdiplusToken;
+
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
 
 // й╣ож

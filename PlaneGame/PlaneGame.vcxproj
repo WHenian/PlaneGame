@@ -116,6 +116,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -132,6 +133,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bomb.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameObject.h" />
@@ -158,6 +160,8 @@
     <Image Include="plane\plane2.bmp" />
     <Image Include="plane\plane3.bmp" />
     <Image Include="plane\thunder.bmp" />
+    <Image Include="res\BackGround1.bmp" />
+    <Image Include="res\background5.bmp" />
     <Image Include="res\PlaneGame.ico" />
     <Image Include="res\PlaneGameDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
@@ -166,6 +170,8 @@
     <ResourceCompile Include="PlaneGame.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="res\PlaneGame.rc2" />
   </ItemGroup>
   <ItemGroup>

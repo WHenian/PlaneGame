@@ -6,7 +6,7 @@
 CImageList CBomb::m_Images;
 
 
-CBomb::CBomb(int x,int y):CGameObject(x,y)
+CBomb::CBomb(int x,int y):CBullet(x,y)
 {
 
 }
@@ -22,7 +22,7 @@ BOOL CBomb::Draw(CDC* pDC,BOOL bPause)
 {
 	if(!bPause)
 	{
-		m_ptPos.y = m_ptPos.y - 8;
+		m_ptPos.y = m_ptPos.y - 20;//×Óµ¯×ø±ê
 	}
 
 	if(m_ptPos.y < -BOMB_HEIGHT)

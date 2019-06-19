@@ -7,7 +7,9 @@
 #endif
 
 #include "resource.h"       // 主符号
-
+#include <gdiplus.h>
+#pragma comment(lib,"gdiplus.lib")
+using namespace Gdiplus;
 
 // CPlaneGameApp:
 // 有关此类的实现，请参阅 PlaneGame.cpp
@@ -22,7 +24,7 @@ public:
 // 重写
 public:
 	virtual BOOL InitInstance();
-
+	ULONG_PTR m_uGdiplusToken;
 // 实现
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()

@@ -1,22 +1,22 @@
 #pragma once
-#include "GameObject.h"
+#include "Bullet.h"
 
-class CBall :public CGameObject
+class CBall :public CBullet
 {
 public:
 	CBall(int x,int y,int nMontion);
 	~CBall(void);
 
-	BOOL Draw(CDC* pDC,BOOL bPause);
+	BOOL Draw(CDC* pDC,BOOL bPause);//打印函数
 
-	static BOOL LoadImage();
+	static BOOL LoadImage();//静态图片加载函数
 
-	CRect GetRect()
+	CRect GetRect()//得到坐标
 	{
-		return CRect(m_ptPos,CPoint(m_ptPos.x+BALL_HEIGHT,m_ptPos.y+BALL_HEIGHT));
+		return CRect(m_ptPos,CPoint(m_ptPos.x+ HEIGHT,m_ptPos.y+ HEIGHT));
 	}
 private:
-	static const int BALL_HEIGHT=8;
-	static CImageList m_Images;
-	int    m_nMotion;
+	static const int BALL_HEIGHT = 8;
+	static CImageList m_Images;//每种不同子弹对应的不同贴图文件
+	const int Ball_ID = 1;//临时存在的子弹编号
 };

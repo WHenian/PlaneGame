@@ -1,4 +1,4 @@
-// PlaneGameView.cpp : CPlaneGameView ÀàµÄÊµÏÖ
+ï»¿// PlaneGameView.cpp : CPlaneGameView ç±»çš„å®ç°
 //
 
 #include "stdafx.h"
@@ -23,7 +23,7 @@
 IMPLEMENT_DYNCREATE(CPlaneGameView, CView)
 
 BEGIN_MESSAGE_MAP(CPlaneGameView, CView)
-	// ±ê×¼´òÓ¡ÃüÁî
+	// æ ‡å‡†æ‰“å°å‘½ä»¤
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
@@ -31,27 +31,28 @@ BEGIN_MESSAGE_MAP(CPlaneGameView, CView)
 
 END_MESSAGE_MAP()
 
-// CPlaneGameView ¹¹Ôì/Îö¹¹
+// CPlaneGameView æ„é€ /ææ„
 
 CPlaneGameView::CPlaneGameView():m_pMe(NULL)
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼Ó¹¹Ôì´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ„é€ ä»£ç 
 	
 }
 
 CPlaneGameView::~CPlaneGameView()
 {
+	
 }
 
 BOOL CPlaneGameView::PreCreateWindow(CREATESTRUCT& cs)
 {
-	// TODO: ÔÚ´Ë´¦Í¨¹ıĞŞ¸Ä
-	//  CREATESTRUCT cs À´ĞŞ¸Ä´°¿ÚÀà»òÑùÊ½
+	// TODO: åœ¨æ­¤å¤„é€šè¿‡ä¿®æ”¹
+	//  CREATESTRUCT cs æ¥ä¿®æ”¹çª—å£ç±»æˆ–æ ·å¼
 
 	return CView::PreCreateWindow(cs);
 }
 
-// CPlaneGameView »æÖÆ
+// CPlaneGameView ç»˜åˆ¶
 
 void CPlaneGameView::OnDraw(CDC* /*pDC*/)
 {
@@ -59,31 +60,35 @@ void CPlaneGameView::OnDraw(CDC* /*pDC*/)
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
+	
+	// TODO: åœ¨æ­¤å¤„ä¸ºæœ¬æœºæ•°æ®æ·»åŠ ç»˜åˆ¶ä»£ç 
 
-	// TODO: ÔÚ´Ë´¦Îª±¾»úÊı¾İÌí¼Ó»æÖÆ´úÂë
+
 }
 
 
-// CPlaneGameView ´òÓ¡
+// CPlaneGameView æ‰“å°
 
 BOOL CPlaneGameView::OnPreparePrinting(CPrintInfo* pInfo)
 {
-	// Ä¬ÈÏ×¼±¸
+	// é»˜è®¤å‡†å¤‡
 	return DoPreparePrinting(pInfo);
 }
 
 void CPlaneGameView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: Ìí¼Ó¶îÍâµÄ´òÓ¡Ç°½øĞĞµÄ³õÊ¼»¯¹ı³Ì
+	// TODO: æ·»åŠ é¢å¤–çš„æ‰“å°å‰è¿›è¡Œçš„åˆå§‹åŒ–è¿‡ç¨‹
+	GdiplusStartupInput m_GdiplusStarupInput;
+	GdiplusStartup(&m_uGdiplusToken, &m_GdiplusStarupInput, NULL);
 }
 
 void CPlaneGameView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
-	// TODO: Ìí¼Ó´òÓ¡ºó½øĞĞµÄÇåÀí¹ı³Ì
+	// TODO: æ·»åŠ æ‰“å°åè¿›è¡Œçš„æ¸…ç†è¿‡ç¨‹
 }
 
 
-// CPlaneGameView Õï¶Ï
+// CPlaneGameView è¯Šæ–­
 
 #ifdef _DEBUG
 void CPlaneGameView::AssertValid() const
@@ -96,7 +101,7 @@ void CPlaneGameView::Dump(CDumpContext& dc) const
 	CView::Dump(dc);
 }
 
-CPlaneGameDoc* CPlaneGameView::GetDocument() const // ·Çµ÷ÊÔ°æ±¾ÊÇÄÚÁªµÄ
+CPlaneGameDoc* CPlaneGameView::GetDocument() const // éè°ƒè¯•ç‰ˆæœ¬æ˜¯å†…è”çš„
 {
 	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CPlaneGameDoc)));
 	return (CPlaneGameDoc*)m_pDocument;
@@ -104,12 +109,12 @@ CPlaneGameDoc* CPlaneGameView::GetDocument() const // ·Çµ÷ÊÔ°æ±¾ÊÇÄÚÁªµÄ
 #endif //_DEBUG
 
 
-// CPlaneGameView ÏûÏ¢´¦Àí³ÌĞò
+// CPlaneGameView æ¶ˆæ¯å¤„ç†ç¨‹åº
 void CPlaneGameView::OnInitialUpdate()
 {
 	CView::OnInitialUpdate();
-	// TODO: ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
-	//³õÊ¼»¯ÓÎÏ·
+	// TODO: åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
+	//åˆå§‹åŒ–æ¸¸æˆ
 	InitGame();
 }
 void CPlaneGameView::StopGame()
@@ -125,21 +130,21 @@ BOOL CPlaneGameView::InitGame()
 	CRect rc;
 	GetClientRect(rc);
 
-	//²úÉúËæ»úÊıÖÖ×Ó
+	//äº§ç”Ÿéšæœºæ•°ç§å­
 	srand( (unsigned)time( NULL ) );
 
-	//½¨Á¢Éè±¸DC
+	//å»ºç«‹è®¾å¤‡DC
 	m_pDC = new CClientDC(this);
 
-	//½¨Á¢ÄÚ´æDC
+	//å»ºç«‹å†…å­˜DC
 	m_pMemDC = new CDC;
 	m_pMemDC->CreateCompatibleDC(m_pDC);
 
-	//½¨Á¢ÄÚ´æÎ»Í¼
-	m_pMemBitmap = new CBitmap;
+	//å»ºç«‹å†…å­˜ä½å›¾
+	m_pMemBitmap = new CBitmap; 
 	m_pMemBitmap->CreateCompatibleBitmap(m_pDC,GAME_WIDTH,GAME_HEIGHT);
 
-	//½«Î»Í¼Ñ¡ÈëÄÚ´æDC
+	//å°†ä½å›¾é€‰å…¥å†…å­˜DC
 	m_pMemDC->SelectObject(m_pMemBitmap);
 
 	CMyPlane::LoadImage();
@@ -148,10 +153,10 @@ BOOL CPlaneGameView::InitGame()
 	CBall::LoadImage();
 	CExplosion::LoadImage();
 
-	//²úÉúÖ÷½Ç(Õ½»ú)
+	//äº§ç”Ÿä¸»è§’(æˆ˜æœº)
 	m_pMe = new CMyPlane;
 
-	//Æô¶¯ÓÎÏ·
+	//å¯åŠ¨æ¸¸æˆ
 	SetTimer(1,30,NULL);
 
 	return TRUE;
@@ -159,10 +164,15 @@ BOOL CPlaneGameView::InitGame()
 
 void CPlaneGameView::UpdateFrame(CDC* pMemDC)
 {
-	//»æÖÆÌì¿Õ
-	pMemDC->FillSolidRect(0,0,GAME_WIDTH,GAME_HEIGHT,RGB(84, 142, 239));
+	//ç»˜åˆ¶å¤©ç©º
+	//pMemDC->FillSolidRect(0,0,GAME_WIDTH,GAME_HEIGHT,RGB(84, 142, 239));
 
-	//»æÖÆÎÒ·½Õ½»ú
+	CRect rect;
+	GetClientRect(&rect); //è·å–å®¢æˆ·åŒºå¤§å° Â  Â Â 
+	Graphics graphics(pMemDC->m_hDC);
+	Image image(_T("res\\BackGround1.bmp"), FALSE);
+	graphics.DrawImage(&image, 0, 0, rect.right, rect.bottom); //ç»˜åˆ¶èƒŒæ™¯
+	//ç»˜åˆ¶æˆ‘æ–¹æˆ˜æœº
 	if(m_pMe!=NULL)
 	{
 	   m_pMe->Draw(m_pMemDC,FALSE);
@@ -176,7 +186,7 @@ void CPlaneGameView::UpdateFrame(CDC* pMemDC)
 		pMemDC->TextOut(GAME_WIDTH/2,GAME_HEIGHT/2,str);
 	}
 	
-	//»æÖÆ µ¼µ¯¡¢±¬Õ¨¡¢µĞ»ú¡¢×Óµ¯
+	//ç»˜åˆ¶ å¯¼å¼¹ã€çˆ†ç‚¸ã€æ•Œæœºã€å­å¼¹
 	for(int i=0;i<4;i++)
 	{
 		POSITION pos1,pos2;
@@ -191,25 +201,25 @@ void CPlaneGameView::UpdateFrame(CDC* pMemDC)
 		}
 	}
 
-	//¸´ÖÆÄÚ´æDCµ½Éè±¸DC
+	//å¤åˆ¶å†…å­˜DCåˆ°è®¾å¤‡DC
 	m_pDC->BitBlt(0,0,GAME_WIDTH,GAME_HEIGHT,m_pMemDC,0,0,SRCCOPY);
 }
 void CPlaneGameView::AI()
 {
 	static int nCreator = rand() %5+10;
 
-	//Ëæ»ú²úÉúµĞ»ú
+	//éšæœºäº§ç”Ÿæ•Œæœº
 	if(nCreator<=0)
 	{
-		nCreator = rand()%5+10;
-		m_ObjList[enEnemy].AddTail(new CEnemy);
+		nCreator = rand()%5+5;//æ•Œæœºæ•°ç›®
+		m_ObjList[enEnemy].AddTail(new CEnemy);//äº§ç”Ÿæ–°çš„æ•Œæœº
 	}
 	nCreator--;
 		
 	if(m_pMe==NULL)
 		return;
 
-	//¼ì²âËÄ¸ö·½Ïò¼ü£¬ÒÆ¶¯Õ½»ú
+	//æ£€æµ‹å››ä¸ªæ–¹å‘é”®ï¼Œç§»åŠ¨æˆ˜æœº
 	for(int i=0;i<4;i++)
 	{
 		int nMeMotion=0;
@@ -233,19 +243,22 @@ void CPlaneGameView::AI()
 			m_pMe->SetHorMotion(-1);
 	}
 	
-	//²úÉúÕ½»úµ¼µ¯
-	if(GetKey(VK_SPACE)==1)//°´ÏÂÁË¿Õ¸ñ¼ü
+	//äº§ç”Ÿæˆ˜æœºå¯¼å¼¹
+	if(GetKey(VK_SPACE)==1)//æŒ‰ä¸‹äº†ç©ºæ ¼é”®
 	{
 		if(m_pMe!=NULL && m_pMe->Fired())
 		{
 			CPoint pt = m_pMe->GetPoint();
-			m_ObjList[enBomb].AddTail(new CBomb(pt.x+10,pt.y+10));
-			m_ObjList[enBomb].AddTail(new CBomb(pt.x+30,pt.y+10));
+			m_ObjList[enBomb].AddTail(new CBomb(pt.x+10,pt.y+10));//ä¸€å‘å­å¼¹
+			m_ObjList[enBomb].AddTail(new CBomb(pt.x+20,pt.y+10));
+			m_ObjList[enBomb].AddTail(new CBomb(pt.x + 0, pt.y + 10));
+			m_ObjList[enBomb].AddTail(new CBomb(pt.x + 40, pt.y + 10));
+			m_ObjList[enBomb].AddTail(new CBomb(pt.x + 30, pt.y + 10));
 		}
 	}
 
 
-	//µĞ»ú·¢Éä×Óµ¯
+	//æ•Œæœºå‘å°„å­å¼¹
 
 	CPoint PlanePt = m_pMe->GetPoint();
 	for(POSITION ePos=m_ObjList[enEnemy].GetHeadPosition();ePos!=NULL;)
@@ -255,22 +268,24 @@ void CPlaneGameView::AI()
 			  continue;
 		  CPoint  ePt = pEnemy->GetPoint();
 
-		  BOOL by=FALSE;
+		  BOOL by=TRUE;
 
-		  //µĞ»úÔÚÕ½»úÇ°Ãæ
+		  //æ•Œæœºåœ¨æˆ˜æœºå‰é¢
 		  if(pEnemy->GetMontion()==1 && ePt.y<PlanePt.y)
 		         by=  TRUE;
-		  //µĞ»úÔÚÕ½»úºóÃæ
+		  //æ•Œæœºåœ¨æˆ˜æœºåé¢
 		  if(pEnemy->GetMontion()==-1 && ePt.y>PlanePt.y)
 				 by=  TRUE;	
 
-		  if(by && ePt.x >= PlanePt.x && ePt.x<PlanePt.x+CMyPlane::PLANE_WIDTH)
-		  {
-              m_ObjList[enBall].AddTail(new CBall(ePt.x+10,ePt.y+10,pEnemy->GetMontion()));
-		  }
+		  //if(by && ePt.x >= PlanePt.x && ePt.x<PlanePt.x+CMyPlane::PLANE_WIDTH)//æ­¤è¯­å¥æ§åˆ¶æ•Œæœºå¼€ç«æ¡ä»¶
+		  //{
+			  m_ObjList[enBall].AddTail(new CBall(ePt.x + 10, ePt.y + 10, pEnemy->GetMontion()));
+			 // m_ObjList[enBall].AddTail(new CBall(ePt.x + 20, ePt.y + 10, pEnemy->GetMontion()));
+			 // m_ObjList[enBall].AddTail(new CBall(ePt.x, ePt.y + 10, pEnemy->GetMontion()));
+		  //}
 	}
 	
-	//µĞ»ú×Óµ¯Õ¨µôÕ½»ú
+	//æ•Œæœºå­å¼¹ç‚¸æ‰æˆ˜æœº
 	POSITION bPos1=NULL,bPos2=NULL;
 	CRect mRect = m_pMe->GetRect();
 	for(bPos1=m_ObjList[enBall].GetHeadPosition();( bPos2 = bPos1 ) != NULL;)
@@ -280,23 +295,23 @@ void CPlaneGameView::AI()
 		CRect tmpRect;
 		if(tmpRect.IntersectRect(&bRect,mRect))
 		{
-			//Ìí¼Ó±¬Õ¨Ğ§¹û
+			//æ·»åŠ çˆ†ç‚¸æ•ˆæœ
 			m_ObjList[enExplosion].AddTail(
 				new CExplosion(mRect.left,mRect.top)
 				);
 
-			//É¾³ı×Óµ¯
+			//åˆ é™¤å­å¼¹
 			m_ObjList[enBall].RemoveAt(bPos2);
 			delete pBall;
 
-			//É¾³ıÕ½»ú
+			//åˆ é™¤æˆ˜æœº
 			delete m_pMe;
 			m_pMe=NULL;
 			break;
 		}
 	}
 
-	//Õ½»úµ¼µ¯Õ¨µôµĞ»ú
+	//æˆ˜æœºå¯¼å¼¹ç‚¸æ‰æ•Œæœº
 	POSITION mPos1=NULL,mPos2=NULL;
 	for(mPos1=m_ObjList[enBomb].GetHeadPosition();(mPos2=mPos1)!=NULL;)
 	{
@@ -311,15 +326,15 @@ void CPlaneGameView::AI()
 			CRect tmpRect;
 			if(tmpRect.IntersectRect(&bRect,mRect))
 			{
-				//Ìí¼Ó±¬Õ¨Ğ§¹û
+				//æ·»åŠ çˆ†ç‚¸æ•ˆæœ
 				m_ObjList[enExplosion].AddTail(
 					new CExplosion(mRect.left,mRect.top)
 					);
-				//É¾³ıµ¼µ¯
+				//åˆ é™¤å¯¼å¼¹
 				m_ObjList[enBomb].RemoveAt(mPos2);
 				delete pBomb;
 
-				//É¾³ıµĞ»ú
+				//åˆ é™¤æ•Œæœº
 				m_ObjList[enEnemy].RemoveAt(ePos2);
 				delete pEnemy;
 				break;
@@ -331,7 +346,7 @@ void CPlaneGameView::AI()
 }
 void CPlaneGameView::OnTimer(UINT_PTR nIDEvent)
 {
-	//Ë¢ĞÂÓÎÏ·Ö¡»­Ãæ: ÔÚÄÚ´æDCÉÏ»æÍ¼
+	//åˆ·æ–°æ¸¸æˆå¸§ç”»é¢: åœ¨å†…å­˜DCä¸Šç»˜å›¾
 	UpdateFrame(m_pMemDC);
 	AI();
 	

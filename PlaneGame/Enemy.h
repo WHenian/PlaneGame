@@ -31,4 +31,7 @@ private:
 	//速度
 	int m_V;
 	int    m_nWait;//发射延时
+	
+	int PlaneDrawtimes;
+	static int PlaneNum;
 };

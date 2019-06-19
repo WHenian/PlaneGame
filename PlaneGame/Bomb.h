@@ -1,8 +1,7 @@
 #pragma once
-#include "gameobject.h"
+#include "Bullet.h"
 
-class CBomb :
-	public CGameObject
+class CBomb :public CBullet
 {
 public:
 	CBomb(int x,int y);
@@ -14,10 +13,10 @@ public:
 
 	CRect GetRect()
 	{
-		return CRect(m_ptPos,CPoint(m_ptPos.x+10,m_ptPos.y+BOMB_HEIGHT));
+		return CRect(m_ptPos,CPoint(m_ptPos.x+10,m_ptPos.y+BOMB_HEIGHT));//会被子弹高度影响，子弹的矩形框。
 	}
 private:
-	static const int BOMB_HEIGHT = 20;
+	static const int BOMB_HEIGHT = 20; //子弹判定高度，如果增加，向下增加高度
 	static CImageList m_Images;
 
 };
